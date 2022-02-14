@@ -233,8 +233,8 @@ void Assignment2::Init()
 	m_parameters[U_LIGHT0_COSINNER] = glGetUniformLocation(m_programID, "lights[0].cosInner");
 	m_parameters[U_LIGHT0_EXPONENT] = glGetUniformLocation(m_programID, "lights[0].exponent");
 
-	//m_parameters[U_LIGHTENABLED] = glGetUniformLocation(m_programID, "lightEnabled");
-	//m_parameters[U_NUMLIGHTS] = glGetUniformLocation(m_programID, "numLights");
+	m_parameters[U_LIGHTENABLED] = glGetUniformLocation(m_programID, "lightEnabled");
+	m_parameters[U_NUMLIGHTS] = glGetUniformLocation(m_programID, "numLights");
 
 	light[1].type = Light::LIGHT_POINT;
 	light[1].position.Set(10, 8, 20);
@@ -372,9 +372,9 @@ void Assignment2::Init()
 	meshList[GEO_BENCH] = MeshBuilder::GenerateOBJMTL("bench", "OBJ//bench.obj","OBJ//bench.mtl");
 
 	meshList[GEO_ROCKS] = MeshBuilder::GenerateOBJMTL("rocks", "OBJ//rocks.obj", "OBJ//rocks.mtl");
-	//meshList[GEO_ROCKS]->textureID = LoadTGA("Image//rockwall.tga");
+	meshList[GEO_ROCKS]->textureID = LoadTGA("Image//rockwall.tga");
 	meshList[GEO_TALLROCK] = MeshBuilder::GenerateOBJMTL("tallrock", "OBJ//rocksTall.obj", "OBJ//rocksTall.mtl");
-	//meshList[GEO_TALLROCK]->textureID = LoadTGA("Image//rockwall.tga");	
+	meshList[GEO_TALLROCK]->textureID = LoadTGA("Image//rockwall.tga");	
 
 	meshList[GEO_BROKENBENCH] = MeshBuilder::GenerateOBJMTL("benchdamaged", "OBJ//benchDamaged.obj", "OBJ//benchDamaged.mtl");
 
@@ -387,7 +387,7 @@ void Assignment2::Init()
 	meshList[GEO_CRYPT] = MeshBuilder::GenerateOBJMTL("crypt", "OBJ//crypt.obj", "OBJ//crypt.mtl");
 
 	meshList[GEO_DEBRIS] = MeshBuilder::GenerateOBJMTL("debris", "OBJ//debris.obj", "OBJ//debris.mtl");
-	//meshList[GEO_DEBRIS]->textureID = LoadTGA("Image//rockwall.tga");
+	meshList[GEO_DEBRIS]->textureID = LoadTGA("Image//rockwall.tga");
 
 	meshList[GEO_LAMP] = MeshBuilder::GenerateOBJMTL("debris", "OBJ//lightpostDouble.obj", "OBJ//lightpostDouble.mtl");
 
@@ -400,10 +400,10 @@ void Assignment2::Init()
 	meshList[GEO_FIREBASKET] = MeshBuilder::GenerateOBJMTL("basket", "OBJ//fireBasket.obj", "OBJ//fireBasket.mtl");
 
 	meshList[GEO_TEXT] = MeshBuilder::GenerateText("text", 16,16);
-	//meshList[GEO_TEXT]->textureID = LoadTGA("Image//RockwellFont.tga");
+	meshList[GEO_TEXT]->textureID = LoadTGA("Image//RockwellFont.tga");
 
 	meshList[GEO_TEXT2] = MeshBuilder::GenerateText("text2", 16, 16);
-	//meshList[GEO_TEXT2]->textureID = LoadTGA("Image//comicsans.tga");
+	meshList[GEO_TEXT2]->textureID = LoadTGA("Image//comicsans.tga");
 
 	//An array of 3 vectors which represents the colors of the 3 vertices
 
@@ -536,56 +536,56 @@ void Assignment2::Update(double dt)
 
 	}
 
-	//if (Application::IsKeyPressed('Z'))			//go forward
-	//{
+	if (Application::IsKeyPressed('Z'))			//go forward
+	{
 
-	//	translateZ += (float)(20 * dt * translateX);
-	//	firstlegRotate += (float)(180 * dt * reverseRotateLeg);
-	//	if (firstlegRotate < -15)
-	//	{
-	//		reverseRotateLeg = 1;
-	//	}
-	//	if (firstlegRotate > 15)
-	//	{
-	//		reverseRotateLeg = -1;
-	//	}
+		translateZ += (float)(20 * dt * translateX);
+		firstlegRotate += (float)(180 * dt * reverseRotateLeg);
+		if (firstlegRotate < -15)
+		{
+			reverseRotateLeg = 1;
+		}
+		if (firstlegRotate > 15)
+		{
+			reverseRotateLeg = -1;
+		}
 
-	//	secondlegRotate += (float)(180 * dt * reverseRotateLeg2);
-	//	if (secondlegRotate < -15)
-	//	{
-	//		reverseRotateLeg2 = 1;
-	//	}
-	//	if (secondlegRotate > 15)
-	//	{
-	//		reverseRotateLeg2 = -1;
-	//	}
-	//	rotateBody = 1;
-	//}
+		secondlegRotate += (float)(180 * dt * reverseRotateLeg2);
+		if (secondlegRotate < -15)
+		{
+			reverseRotateLeg2 = 1;
+		}
+		if (secondlegRotate > 15)
+		{
+			reverseRotateLeg2 = -1;
+		}
+		rotateBody = 1;
+	}
 
-	//if (Application::IsKeyPressed('X'))			//go backwards
-	//{
+	if (Application::IsKeyPressed('X'))			//go backwards
+	{
 
-	//	translateZ += (float)(20 * dt * -translateX);
-	//	firstlegRotate += (float)(180 * dt * reverseRotateLeg3);
-	//	if (firstlegRotate < -15)
-	//	{
-	//		reverseRotateLeg3 = 1;
-	//	}
-	//	if (firstlegRotate > 15)
-	//	{
-	//		reverseRotateLeg3 = -1;
-	//	}
-	//	secondlegRotate += (float)(180 * dt * reverseRotateLeg4);
-	//	if (secondlegRotate < -15)
-	//	{
-	//		reverseRotateLeg4 = 1;
-	//	}
-	//	if (secondlegRotate > 15)
-	//	{
-	//		reverseRotateLeg4 = -1;
-	//	}
-	//	rotateBody = 180;
-	//}
+		translateZ += (float)(20 * dt * -translateX);
+		firstlegRotate += (float)(180 * dt * reverseRotateLeg3);
+		if (firstlegRotate < -15)
+		{
+			reverseRotateLeg3 = 1;
+		}
+		if (firstlegRotate > 15)
+		{
+			reverseRotateLeg3 = -1;
+		}
+		secondlegRotate += (float)(180 * dt * reverseRotateLeg4);
+		if (secondlegRotate < -15)
+		{
+			reverseRotateLeg4 = 1;
+		}
+		if (secondlegRotate > 15)
+		{
+			reverseRotateLeg4 = -1;
+		}
+		rotateBody = 180;
+	}
 
 	if (Application::IsKeyPressed('T') == false)
 	{
@@ -1045,7 +1045,11 @@ void Assignment2::Render()
 
 	RenderSkybox();
 
-	////body
+//<<<<<<< Updated upstream
+//	////body
+//=======
+//	//body
+//>>>>>>> Stashed changes
 	modelStack.PushMatrix();
 	{
 		modelStack.Translate(0, 1.4, 0);
