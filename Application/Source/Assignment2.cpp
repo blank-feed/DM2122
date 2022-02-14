@@ -364,7 +364,7 @@ void Assignment2::Init()
 	meshList[GEO_LIGHTBALL] = MeshBuilder::GenerateSphere("sphere", Color(1, 1, 1), 10, 20, 1.f);		//light for lamppost
 	
 	meshList[GEO_HOLLOW] = MeshBuilder::GenerateOBJMTL("hollow", "OBJ//Hollow.obj", "OBJ//Hollow.mtl");
-	//meshList[GEO_HOLLOW]->textureID = LoadTGA("Image//Hollow-text.tga");
+	meshList[GEO_HOLLOW]->textureID = LoadTGA("Image//Hollow-text.tga");
 
 	meshList[GEO_HORNET] = MeshBuilder::GenerateOBJMTL("hornet", "OBJ//zombie.obj", "OBJ//zombie.mtl");
 	
