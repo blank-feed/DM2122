@@ -13,6 +13,7 @@
 
 #include "SceneUI.h"
 #include "Assignment2.h"
+#include "Scene_EndScreen.h"
 
 
 GLFWwindow* m_window;
@@ -130,9 +131,11 @@ void Application::Run()
 	
 	Scene *scene1 = new SceneUI();
 	Scene* scene2 = new Assignment2();
+	Scene* scene3 = new Scene_EndScreen();
 	Scene *scene = scene1;
 	scene1->Init();
 	scene2->Init();
+	scene3->Init();
 
 	m_timer.startTimer();    // Start timer to calculate how long it takes to render this frame
 	while (!glfwWindowShouldClose(m_window) && !IsKeyPressed(VK_ESCAPE))
@@ -141,6 +144,8 @@ void Application::Run()
 			scene = scene1;
 		else if (IsKeyPressed(VK_F2))
 			scene = scene2;
+		else if (IsKeyPressed(VK_F3))
+			scene = scene3;
 		scene->Update(m_timer.getElapsedTime());
 		scene->Render();
 		//Swap buffers

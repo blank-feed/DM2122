@@ -147,6 +147,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Player.cpp" />
     <ClCompile Include="Source\Application.cpp" />
     <ClCompile Include="Source\Assignment1.cpp" />
     <ClCompile Include="Source\Assignment2.cpp" />
@@ -170,10 +171,13 @@
     <ClCompile Include="Source\SceneText.cpp" />
     <ClCompile Include="Source\SceneTexture.cpp" />
     <ClCompile Include="Source\SceneUI.cpp" />
+    <ClCompile Include="Source\Scene_EndScreen.cpp" />
     <ClCompile Include="Source\shader.cpp" />
+    <ClCompile Include="Source\SP.cpp" />
     <ClCompile Include="Source\Utility.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Player.h" />
     <ClInclude Include="Source\Application.h" />
     <ClInclude Include="Source\Assignment1.h" />
     <ClInclude Include="Source\Assignment2.h" />
@@ -192,6 +196,8 @@
     <ClInclude Include="Source\SceneText.h" />
     <ClInclude Include="Source\SceneTexture.h" />
     <ClInclude Include="Source\SceneUI.h" />
+    <ClInclude Include="Source\Scene_EndScreen.h" />
+    <ClInclude Include="Source\SP.h" />
     <ClInclude Include="Source\Utility.h" />
     <ClInclude Include="Source\Vertex.h" />
     <ClInclude Include="Source\Mesh.h" />
