@@ -6,11 +6,11 @@
 #include "MeshBuilder.h"
 #include "Utility.h"
 #include "LoadTGA.h"
+#include "Player.h"
 
 
 SP::SP()
 {
-
 }
 
 SP::~SP()
@@ -995,6 +995,8 @@ void SP::Update(double dt)
 	camerax = std::to_string(camera.position.x);
 	
 	cameraz = std::to_string(camera.position.z);
+
+
 }
 
 
